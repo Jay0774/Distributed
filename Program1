@@ -1,0 +1,33 @@
+# server.java file
+
+
+import java.net.*;
+import java.io.*;
+import java.util.*;
+public class server{
+public static void main(String args[])throws IOException {
+  ServerSocket ss= new ServerSocket(4999);
+  Socket s=ss.accept();
+  System.out.println("Client Connected");
+}
+}
+
+# client.java file
+
+
+import java.net.*;
+import java.io.*;
+import java.util.*;
+public class server{
+public static void main(String args[])throws IOException {
+  ServerSocket ss= new ServerSocket(4999);
+  Socket s=ss.accept();
+  System.out.println("Client Connected");
+}
+}
+
+
+# to run the file using terminal or command prompt
+!. open two different prompt windows.
+2. rum server first in one window.
+3. run cilent on second window.
