@@ -1,0 +1,39 @@
+# for server side..
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.*;
+
+public class server1 {
+
+ public static void main(String[] args)throws IOException {
+	ServerSocket ss =new ServerSocket(4999);
+	Socket s=ss.accept();
+	System.out.println("Client Connected");
+	InputStreamReader inl=new InputStreamReader(s.getInputStream());                  # getInputStream() method is used to accept the msg through the socket.
+	BufferedReader bf = new BufferedReader(inl);
+	String str =bf.readLine();
+	System.out.print("Client:");
+	System.out.print(str);
+	}
+
+}
+
+
+# for client side..
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.*;
+
+public class client1 {
+	public static void main(String[] args)throws IOException {
+		Socket s=new Socket("localhost",4999);
+		PrintWriter ptr = new PrintWriter(s.getOutputStream());                         # getOutputStream() method is used to send the output through the socket.
+		ptr.println("hello how are you...!!!");                                         # using printwriter object.
+		ptr.flush();
+	}
+
+}
