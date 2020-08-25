@@ -6,8 +6,8 @@ import java.io.*;
 import java.util.*;
 public class server{
 public static void main(String args[])throws IOException {
-  ServerSocket ss= new ServerSocket(4999);
-  Socket s=ss.accept();
+  ServerSocket ss= new ServerSocket(4999);                                    # creating a serversocket so that client can be connected to the server using ip and port.
+  Socket s=ss.accept();                                                       # creating the socket object. 
   System.out.println("Client Connected");
 }
 }
@@ -15,16 +15,17 @@ public static void main(String args[])throws IOException {
 # client.java file
 
 
+
+import java.io.IOException;
 import java.net.*;
-import java.io.*;
 import java.util.*;
-public class server{
-public static void main(String args[])throws IOException {
-  ServerSocket ss= new ServerSocket(4999);
-  Socket s=ss.accept();
-  System.out.println("Client Connected");
+public class client{
+public static void main(String args[])throws IOException{
+Socket s = new Socket("localhost",4999);                                        # connecting to the server ip and port using the socket.
 }
 }
+
+
 
 
 # to run the file using terminal or command prompt
