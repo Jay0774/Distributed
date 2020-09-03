@@ -1,0 +1,48 @@
+# Client file:
+
+import java.util.*;
+import java.net.Socket;
+import java.io.*;
+
+public class clientex
+{
+	public static void main(String args[]) throws IOException{
+		Socket s= new Socket("localhost",4999);
+		InputStreamReader r= new InputStreamReader(s.getInputStream());
+		BufferedReader bf=new BufferedReader(r);
+		String c=bf.readLine();
+		System.out.println("Server:"+" "+c);
+		Scanner a=new Scanner(System.in);
+		System.out.println("Enter the Message:");
+		String b=a.nextLine();
+		PrintWriter p=new PrintWriter(s.getOutputStream());
+		p.println("Server:"+" "+b);
+		p.flush();
+	}
+}
+
+# Server file:
+
+import java.util.*;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class serverex
+{
+	public static void main(String args[]) throws IOException{
+		Scanner a=new Scanner(System.in);
+		System.out.println("Enter the Message:");
+		String b=a.nextLine();
+		ServerSocket ss= new ServerSocket(4999);
+		Socket s=ss.accept();
+		System.out.println("Client Connected");
+		PrintWriter ptr = new PrintWriter(s.getOutputStream());
+		ptr.println(b);
+		ptr.flush();
+		InputStreamReader inl=new InputStreamReader(s.getInputStream());
+		BufferedReader bf = new BufferedReader(inl);
+		String str =bf.readLine();
+		System.out.println(str);
+	}
+}
